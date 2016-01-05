@@ -10,19 +10,28 @@ use Symfony\Component\HttpFoundation\Response;
 class HelloController extends Controller
 {
     /**
-     * @Route("/hello/{name}", name="hello")
+     * @Route("/hello/{id}", name="id")
      */
-    public function indexAction($name)
+    public function indexAction($id)
     {
-        return new Response('<html><body>Hello '.$name.'!</body></html>');
+        $product = $this->getDoctrine()
+            ->getRepository('AppBundle:Product2')
+            ->find($id);
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+        return new Response('<html><body>Hello '.$product->getNaam().'!</body></html>');
     }
 
     /**
      * @Route("/hello/")
      */
+
     public function Test()
     {
-        return new Response('<html><body>Hello HELLO!</body></html>');
+        return new Response('<html><body>Hello H!</body></html>');
     }
 
 }

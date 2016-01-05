@@ -1,0 +1,128 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Product2
+ *
+ * @ORM\Table(name="product2")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Product2Repository")
+ */
+class Product2
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="naam", type="string", length=255)
+     */
+    private $naam;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="voornaam", type="string", length=255)
+     */
+    private $voornaam;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="profielfoto", type="string", length=255)
+     */
+    private $profielfoto;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set naam
+     *
+     * @param string $naam
+     *
+     * @return Product2
+     */
+    public function setNaam($naam)
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    /**
+     * Get naam
+     *
+     * @return string
+     */
+    public function getNaam()
+    {
+        return $this->naam;
+    }
+
+    /**
+     * Set voornaam
+     *
+     * @param string $voornaam
+     *
+     * @return Product2
+     */
+    public function setVoornaam($voornaam)
+    {
+        $this->voornaam = $voornaam;
+
+        return $this;
+    }
+
+    /**
+     * Get voornaam
+     *
+     * @return string
+     */
+    public function getVoornaam()
+    {
+        return $this->voornaam;
+    }
+
+    /**
+     * Set profielfoto
+     *
+     * @param string $profielfoto
+     *
+     * @return Product2
+     */
+    public function setProfielfoto($profielfoto)
+    {
+        $this->profielfoto = $profielfoto;
+
+        return $this;
+    }
+
+    /**
+     * Get profielfoto
+     *
+     * @return string
+     */
+    public function getProfielfoto()
+    {
+        return $this->profielfoto;
+    }
+}
+
