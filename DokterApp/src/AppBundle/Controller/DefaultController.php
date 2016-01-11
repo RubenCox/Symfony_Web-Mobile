@@ -98,4 +98,25 @@ class DefaultController extends Controller
         ));
 
     }
+
+    /**
+     * @Route("/about", name="about")
+     */
+    public function indexAbout(Request $request)
+    {
+
+        // create a task and give it some dummy data for this example
+        $task = new Patient();
+        $task->setNaam('');
+        $form = $this->createFormBuilder($task)
+            ->add('naam', 'text')
+            ->add('voornaam', 'text')
+            ->add('email', 'email')
+            ->add('save', 'submit', array('label' => 'Registreer'))
+            ->getForm();
+        return $this->render('default/about.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
+    }
 }

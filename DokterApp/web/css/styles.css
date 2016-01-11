@@ -1,7 +1,11 @@
 
 
-h1,h2{font-family: 'Raleway', sans-serif;}
-h1{font-weight:300;}
+h1,h2,h3,h4,.light,.number{font-family: 'Raleway', sans-serif;}
+h1,h3{font-weight:300;}
+h3{font-size:1.3em;}
+
+
+
 
 .body_container{width:100%;height:100%;background:#f6f6f6;}
 
@@ -23,3 +27,133 @@ h1{font-weight:300;}
 .button:hover{background:#16a085;cursor:pointer;}
 
 .turq{width:100%;border:0;height:1px;background:#1abc9c;margin: 10px 0px;}
+
+
+
+.left {
+    float: left;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:50px;
+}
+
+.right {
+    float: right;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:50px;
+}
+
+.user {
+    max-width: 250px;
+    border-radius: 50%;
+}
+
+.icon {
+    max-width: 50px;
+}
+.icon:hover{cursor:pointer;opacity:0.8;}
+/* kolom van 3 */
+
+.dr {
+    font-family: blogger;
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.number {
+    font-size: 3em;
+}
+
+.info {
+    float: left;
+    width: 100%;
+    padding: 15px;
+}
+
+.skills {
+    float: left;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.about {
+    float: left;
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 1em;
+}
+
+hr#klein {
+    border: 0;
+    width: 90px;
+    height: 1px;
+}
+
+hr#groot {
+    border: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.groen {
+    background-color: #99cc01;
+    color: #99cc01;
+}
+
+.blauw {
+    background-color: #3899e4;
+    color: #3899e4;
+}
+
+.text {
+    padding: 5px;
+}
+
+
+
+
+/*mobile*/
+
+@media screen and (max-width:480px) {
+    .left {
+        width: 100%;
+    }
+    .right {
+        width: 100%;
+    }
+}
+/*Tablets portrait*/
+
+@media screen and (max-width:600px) {
+    .left {
+        width: 100%;
+    }
+    .right {
+        width: 100%;
+    }
+    .number {
+        font-size: 1.4em;
+    }
+    .light {
+        font-size: 0.7em;
+    }
+    .info {
+        padding: 2%;
+    }
+    .right {
+        margin-top: 50px;
+    }
+}
+/*Tablets landscape*/
+
+@media screen and (min-width:768px) {}
+/*desktop*/
+
+@media screen and (min-width:1024px) {}
