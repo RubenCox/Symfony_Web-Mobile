@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product2
+ * Dokters
  *
- * @ORM\Table(name="product2")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Product2Repository")
+ * @ORM\Table(name="dokters")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\DoktersRepository")
  */
-class Product2
+class Dokters
 {
     /**
      * @var int
@@ -24,14 +24,14 @@ class Product2
     /**
      * @var string
      *
-     * @ORM\Column(name="naam", type="string", length=255)
+     * @ORM\Column(name="naam", type="string", length=55)
      */
     private $naam;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="voornaam", type="string", length=255)
+     * @ORM\Column(name="voornaam", type="string", length=55)
      */
     private $voornaam;
 
@@ -58,7 +58,7 @@ class Product2
      *
      * @param string $naam
      *
-     * @return Product2
+     * @return Dokters
      */
     public function setNaam($naam)
     {
@@ -82,7 +82,7 @@ class Product2
      *
      * @param string $voornaam
      *
-     * @return Product2
+     * @return Dokters
      */
     public function setVoornaam($voornaam)
     {
@@ -106,7 +106,7 @@ class Product2
      *
      * @param string $profielfoto
      *
-     * @return Product2
+     * @return Dokters
      */
     public function setProfielfoto($profielfoto)
     {

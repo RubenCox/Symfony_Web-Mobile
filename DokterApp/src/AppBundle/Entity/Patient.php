@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product2
+ * Patient
  *
- * @ORM\Table(name="product2")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Product2Repository")
+ * @ORM\Table(name="patient")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PatientRepository")
  */
-class Product2
+class Patient
 {
     /**
      * @var int
@@ -24,23 +24,23 @@ class Product2
     /**
      * @var string
      *
-     * @ORM\Column(name="naam", type="string", length=255)
+     * @ORM\Column(name="Naam", type="string", length=55)
      */
     private $naam;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="voornaam", type="string", length=255)
+     * @ORM\Column(name="Voornaam", type="string", length=55)
      */
     private $voornaam;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="profielfoto", type="string", length=255)
+     * @ORM\Column(name="Email", type="string", length=255)
      */
-    private $profielfoto;
+    private $email;
 
 
     /**
@@ -58,7 +58,7 @@ class Product2
      *
      * @param string $naam
      *
-     * @return Product2
+     * @return Patient
      */
     public function setNaam($naam)
     {
@@ -82,7 +82,7 @@ class Product2
      *
      * @param string $voornaam
      *
-     * @return Product2
+     * @return Patient
      */
     public function setVoornaam($voornaam)
     {
@@ -102,26 +102,26 @@ class Product2
     }
 
     /**
-     * Set profielfoto
+     * Set email
      *
-     * @param string $profielfoto
+     * @param string $email
      *
-     * @return Product2
+     * @return Patient
      */
-    public function setProfielfoto($profielfoto)
+    public function setEmail($email)
     {
-        $this->profielfoto = $profielfoto;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get profielfoto
+     * Get email
      *
      * @return string
      */
-    public function getProfielfoto()
+    public function getEmail()
     {
-        return $this->profielfoto;
+        return $this->email;
     }
 }

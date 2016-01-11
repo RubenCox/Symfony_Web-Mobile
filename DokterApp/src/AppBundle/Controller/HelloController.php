@@ -15,7 +15,7 @@ class HelloController extends Controller
     public function indexAction($id)
     {
         $product = $this->getDoctrine()
-            ->getRepository('AppBundle:Product2')
+            ->getRepository('AppBundle:Dokters')
             ->find($id);
         if (!$product) {
             throw $this->createNotFoundException(

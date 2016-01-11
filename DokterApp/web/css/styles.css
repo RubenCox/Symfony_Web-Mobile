@@ -1,0 +1,25 @@
+
+
+h1,h2{font-family: 'Raleway', sans-serif;}
+h1{font-weight:300;}
+
+.body_container{width:100%;height:100%;background:#f6f6f6;}
+
+
+.foot{ position:absolute;
+    bottom:0;
+    width:100%;
+    height:60px; }
+
+.nav li a {
+    line-height: 100px;
+}
+.docs{text-align:center;margin-top:50px;}
+.docs img{max-width:80%;border-radius:50%;}
+
+
+
+.button{border-radius:4px;background:#1abc9c;padding:10px 10px;color:white;}
+.button:hover{background:#16a085;cursor:pointer;}
+
+.turq{width:100%;border:0;height:1px;background:#1abc9c;margin: 10px 0px;}
