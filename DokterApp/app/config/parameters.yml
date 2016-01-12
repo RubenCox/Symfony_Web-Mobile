@@ -1,6 +1,5 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_driver: pdo_mysql 
     database_host: localhost
     database_port: 8888
     database_name: dokterapp

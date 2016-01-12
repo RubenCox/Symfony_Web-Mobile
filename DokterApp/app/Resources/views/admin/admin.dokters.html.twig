@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <h1 style="text-align:center">Dokters</h1>
+    <hr class="turq">
+    <h1 style="text-align:center">{{ success }}</h1>
+
+    <div class="row docs">
+        {% for dokter in dokters %}
+            <div class="col-sm-3">
+
+
+                <a href="#"> <img src="{{ asset('images/doctor.jpg') }}"></a>
+                <h2>{{ dokter.voornaam }}</h2>
+                <h2> {{ dokter.naam }}</h2>
+                <p><img src="{{ asset('images/tel.png') }}" style="max-height:1em;margin-right:5px;">014-65 61 99</p>
+                <a href="/admin/dokters/edit/{{ dokter.id }}"><div class="button">Edit</div></a>
+                <a href="/admin/dokters/delete/{{ dokter.id }}"><div class="button">Delete</div></a>
+            </div>
+
+        {% endfor %}
+        <div class="col-sm-3">
+            <a href="#"> <img src="{{ asset('images/doctor.jpg') }}"></a>
+            <h2>?</h2>
+            <h2>?</h2>
+            <p><img src="{{ asset('images/tel.png') }}" style="max-height:1em;margin-right:5px;">?</p>
+            <a href="/admin/dokters/add"><div class="button">Add Doctor</div></a>
+        </div>
+    </div>
+{% endblock %}
+
