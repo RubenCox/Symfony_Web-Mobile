@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <h1 style="text-align:center">Dokters</h1>
+    <hr class="turq">
+
+    <div class="row docs">
+        {% for dokter in dokters %}
+            {% if dokter.id == info %}
+            <div class="col-sm-4">
+                <a href=""> <img src="{{ asset('images/doctor.jpg') }}"></a>
+            </div>
+            <div class="col-sm-6">
+                <h2>{{ dokter.voornaam }} {{ dokter.naam }}</h2>
+                <p>omschrijving</p>
+                <h3><img src="{{ asset('images/tel.png') }}" style="max-height:1em;margin-right:5px;">014-65 61 99</h3>
+
+             </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+

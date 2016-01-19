@@ -5,13 +5,18 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Dokters;
 use AppBundle\Entity\Patient;
+use AppBundle\Entity\Product;
+use AppBundle\Form\ProductType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class DefaultController extends Controller
 {
+    /*  USER GEDEELTE  */
     /**
      * @Route("/", name="homepage")
      */
@@ -47,6 +52,54 @@ class DefaultController extends Controller
 
     }
 
+    /**
+     * @Route("/dokters/info/{id}", name="doktersInfo")
+     */
+    public function indexInfoDokters($id, Request $request)
+    {
+        $conn = $this->get('database_connection');
+        $dokters = $conn->fetchAll('SELECT * FROM dokters');
+        $info = $id;
+
+        return $this->render('dokter/dokters_info.html.twig', array(
+            'dokters' => $dokters, 'info' => $info
+        ));
+
+    }
+
+    /**
+     * @Route("/registreer", name="registreren")
+     */
+    public function indexRegistreer(Request $request)
+    {
+
+        // create a task and give it some dummy data for this example
+        $task = new Patient();
+        $task->setNaam('');
+        $form = $this->createFormBuilder($task)
+            ->add('naam', 'text')
+            ->add('voornaam', 'text')
+            ->add('email', 'email')
+            ->add('save', 'submit', array('label' => 'Registreer'))
+            ->getForm();
+        return $this->render('default/registreer.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
+    }
+
+    /**
+     * @Route("/about", name="about")
+     */
+    public function indexAbout(Request $request)
+    {
+        return $this->render('default/about.html.twig');
+
+    }
+
+
+
+    /*  ADMIN GEDEELTE */
     /**
      * @Route("/admin/dokters", name="adminDokters")
      */
@@ -88,36 +141,6 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/registreer", name="registreren")
-     */
-    public function indexRegistreer(Request $request)
-    {
-
-        // create a task and give it some dummy data for this example
-        $task = new Patient();
-        $task->setNaam('');
-        $form = $this->createFormBuilder($task)
-            ->add('naam', 'text')
-            ->add('voornaam', 'text')
-            ->add('email', 'email')
-            ->add('save', 'submit', array('label' => 'Registreer'))
-            ->getForm();
-        return $this->render('default/registreer.html.twig', array(
-            'form' => $form->createView(),
-        ));
-
-    }
-
-    /**
-     * @Route("/about", name="about")
-     */
-    public function indexAbout(Request $request)
-    {
-        return $this->render('default/about.html.twig');
-
-    }
-
-    /**
      * @Route("/admin/dokters/add", name="dokterAdd")
      */
     public function addDokter(Request $request) {
@@ -127,6 +150,7 @@ class DefaultController extends Controller
             ->add('naam', 'text')
             ->add('voornaam', 'text')
             ->add('profielfoto', 'text')
+            ->add('brochure', FileType::class, array('label' => 'Brochure (PDF file)'))
             ->add('save', 'submit', array('label' => 'Add Dokter'))
             ->getForm();
         $form->handleRequest($request);
@@ -139,9 +163,26 @@ class DefaultController extends Controller
             $product->setNaam($naam);
             $product->setVoornaam($voornaam);
             $product->setProfielfoto($profielfoto);
+
+            // $file stores the uploaded PDF file
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file **/
+            $file = $product->getBrochure();
+            // Generate a unique name for the file before saving it
+                        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            // Move the file to the directory where brochures are stored
+                        $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/
+            uploads/brochures';
+                        $file->move($brochuresDir, $fileName);
+            // Update the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $product->setBrochure($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
+
+
+
             $success = 'Doctor added successfully';
             return $this->redirectToRoute('adminDokters', array('success'=>$success));
 
@@ -214,5 +255,35 @@ class DefaultController extends Controller
 
         $build['form'] = $form->createView();
         return $this->render('admin/admin.dokters_delete.html.twig', $build);
+    }
+
+
+    /**
+     * @Route("/product/new", name="app_product_new")
+     */
+    public function newAction(Request $request)
+    {
+        $product = new Product();
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+// $file stores the uploaded PDF file
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $product->getBrochure();
+// Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+// Move the file to the directory where brochures are stored
+            $brochuresDir = $this->container->getParameter('kernel.root_dir').'/../web/
+uploads/brochures';
+            $file->move($brochuresDir, $fileName);
+// Update the 'brochure' property to store the PDF file name
+// instead of its contents
+            $product->setBrochure($fileName);
+// ... persist the $product variable or any other work
+            return $this->redirectToRoute('homepage');
+        }
+        return $this->render('product/new.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }

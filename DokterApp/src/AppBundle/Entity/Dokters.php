@@ -42,7 +42,19 @@ class Dokters
      */
     private $profielfoto;
 
-
+    /**
+     * @ORM\Column(type="string")
+     *
+     */
+    private $brochure;
+    public function getBrochure()
+    {
+        return $this->brochure;
+    }
+    public function setBrochure($brochure){
+        $this->brochure = $brochure;
+        return $this;
+    }
     /**
      * Get id
      *
