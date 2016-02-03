@@ -17,6 +17,12 @@
                 <li role="presentation"><a href="/">Home</a></li>
                 <li role="presentation"><a href="/dokters">Dokters</a></li>
                 <li role="presentation"><a href="/registreer">Registreer</a></li>
+                {% if app.user %}
+                    <li role="presentation"><a href="/logout">Logout</a></li>
+                {% else %}
+                    <li role="presentation"><a href="/login">Login</a></li>
+                {% endif %}
+
                 <li role="presentation"><a href="/about">About</a></li>
             </ul>
         </nav>

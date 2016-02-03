@@ -1,0 +1,30 @@
+{% extends 'admin.base.html.twig' %}
+
+{% block body %}
+
+
+    <h1 style="text-align:center">Lokalen</h1>
+    <hr class="turq">
+    <h1 style="text-align:center">{{ success }}</h1>
+
+    <div class="row docs">
+        {% for lokaal in lokalen %}
+            <div class="col-sm-3">
+
+
+                <a href="#"> <img src="{{ asset('images/lokaal.jpg') }}"></a>
+                <h2>{{ lokaal.Omschrijving }}</h2>
+                <h2>{{ lokaal.ArtsID }}</h2>
+                <a href="/admin/lokalen/edit/{{ lokaal.id }}"><div class="button">Edit</div></a>
+                <a href="/admin/lokalen/delete/{{ lokaal.id }}"><div class="button">Delete</div></a>
+            </div>
+
+        {% endfor %}
+        <div class="col-sm-3">
+            <a href="#"> <img src="{{ asset('images/lokaal.jpg') }}"></a>
+            <h2>?</h2>
+            <a href="/admin/lokalen/add"><div class="button">Lokaal toevoegen</div></a>
+        </div>
+    </div>
+{% endblock %}
+

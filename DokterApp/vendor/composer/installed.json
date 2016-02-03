@@ -2393,5 +2393,95 @@
         "keywords": [
             "rest"
         ]
+    },
+    {
+        "name": "captcha-com/captcha",
+        "version": "3.0.3",
+        "version_normalized": "3.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "http://git.captcha.com/botdetect-php-captcha-library.git",
+            "reference": "7c9eca4d1998f512354d7ebf10f61d34378d2a5e"
+        },
+        "require": {
+            "php": ">=5.2.1"
+        },
+        "suggest": {
+            "captcha-com/cakephp-captcha": "BotDetect 3 PHP Captcha integration for the CakePHP framework.",
+            "captcha-com/laravel-captcha": "BotDetect 3 PHP Captcha integration for the Laravel framework.",
+            "captcha-com/symfony-captcha-bundle": "BotDetect 3 PHP Captcha integration for the Symfony framework."
+        },
+        "time": "2015-12-08 11:52:41",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Commercial"
+        ],
+        "authors": [
+            {
+                "name": "BotDetect Captcha",
+                "email": "botdetect.support@captcha.com",
+                "homepage": "http://captcha.com/php-captcha.html"
+            }
+        ],
+        "description": "BotDetect 3 PHP Captcha Free composer package.",
+        "homepage": "http://captcha.com/php-captcha.html",
+        "keywords": [
+            "captcha"
+        ]
+    },
+    {
+        "name": "captcha-com/symfony-captcha-bundle",
+        "version": "3.3.2",
+        "version_normalized": "3.3.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/captcha-com/symfony-captcha-bundle.git",
+            "reference": "cdf096ea784859e73337d1e85e45d8f90f601196"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/captcha-com/symfony-captcha-bundle/zipball/cdf096ea784859e73337d1e85e45d8f90f601196",
+            "reference": "cdf096ea784859e73337d1e85e45d8f90f601196",
+            "shasum": ""
+        },
+        "require": {
+            "captcha-com/captcha": "3.*",
+            "php": ">=5.3.9"
+        },
+        "time": "2016-01-04 07:56:59",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Captcha\\Bundle\\CaptchaBundle\\": "/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "BotDetect Captcha",
+                "email": "botdetect.support@captcha.com",
+                "homepage": "http://captcha.com/doc/php/symfony-captcha-bundle-quickstart.html"
+            }
+        ],
+        "description": "BotDetect 3 PHP Captcha integration for the Symfony framework.",
+        "homepage": "http://captcha.com/doc/php/symfony-captcha-bundle-quickstart.html",
+        "keywords": [
+            "captcha",
+            "captcha bundle",
+            "symfony captcha"
+        ]
     }
 ]

@@ -18,7 +18,7 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    #serializer:      { enable_annotations: true }
+    serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
@@ -30,9 +30,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
-    # ...
-    serializer:
-      enabled: true
+
 
 # Twig Configuration
 twig:
@@ -61,7 +59,11 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
-
+captcha:
+  basic_captcha:
+    captcha_id: BasicCaptcha
+    user_input_id: captchaCode
+    captcha_config_file_path: captcha_config/BasicCaptchaConfig.php
 
 
 # Swiftmailer Configuration

@@ -29,17 +29,16 @@ class Lokalen
     private $omschrijving;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="ArtsID", type="integer")
+     * @ORM\Column(name="ArtsID", type="string", length=4)
      */
     private $artsID;
-
 
     /**
      * Get id
      *
-     * @return int
+     * @return string
      */
     public function getId()
     {
@@ -73,7 +72,7 @@ class Lokalen
     /**
      * Set artsID
      *
-     * @param integer $artsID
+     * @param string $artsID
      *
      * @return Lokalen
      */
@@ -87,10 +86,11 @@ class Lokalen
     /**
      * Get artsID
      *
-     * @return int
+     * @return string
      */
     public function getArtsID()
     {
         return $this->artsID;
     }
+
 }

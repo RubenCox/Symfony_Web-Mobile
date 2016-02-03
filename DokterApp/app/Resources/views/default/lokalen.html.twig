@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <h1 style="text-align:center">Lokalen</h1>
+    <hr class="turq">
+
+    <div class="row docs">
+        {% for lokaal in lokalen %}
+            <div class="col-sm-3">
+
+
+                <a href="/lokalen/info/"> <img src="{{ asset('images/doctor.jpg') }}"></a>
+                <h2>{{ lokaal.id }}</h2>
+                <h2>{{ lokaal.artsid }}</h2>
+                <a href="/dokters/"><div class="button">Maak afspraak</div></a>
+            </div>
+
+
+        {% endfor %}
+    </div>
+{% endblock %}
+

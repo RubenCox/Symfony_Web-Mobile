@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Dokters
@@ -13,9 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Dokters
 {
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="string")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -35,26 +36,30 @@ class Dokters
      */
     private $voornaam;
 
+
     /**
-     * @var string
-     *
      * @ORM\Column(name="profielfoto", type="string", length=255)
+     *     /**
+     * @Assert\Image(
+     *     minWidth = 200,
+     *     maxWidth = 400
+     * )
      */
+
     private $profielfoto;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="nummer", type="string", length=25)
      *
      */
-    private $brochure;
-    public function getBrochure()
-    {
-        return $this->brochure;
-    }
-    public function setBrochure($brochure){
-        $this->brochure = $brochure;
-        return $this;
-    }
+    private $nummer;
+
+    /**
+     * @ORM\Column(name="lokaal", type="string", length=5)
+     *
+     */
+    private $lokaal;
+
     /**
      * Get id
      *
@@ -114,20 +119,6 @@ class Dokters
     }
 
     /**
-     * Set profielfoto
-     *
-     * @param string $profielfoto
-     *
-     * @return Dokters
-     */
-    public function setProfielfoto($profielfoto)
-    {
-        $this->profielfoto = $profielfoto;
-
-        return $this;
-    }
-
-    /**
      * Get profielfoto
      *
      * @return string
@@ -136,4 +127,72 @@ class Dokters
     {
         return $this->profielfoto;
     }
+
+    /**
+     * Set profielfoto
+     *
+     * @param string $profielfoto
+     *
+     * @return Dokters
+     */
+    public function setProfielfoto($profielfoto){
+        $this->profielfoto = $profielfoto;
+        return $this;
+    }
+
+    /**
+     * Get nummer
+     *
+     * @return string
+     */
+    public function getNummer()
+    {
+        return $this->nummer;
+    }
+
+    /**
+     * Set nummer
+     *
+     * @param string $nummer
+     *
+     * @return Dokters
+     */
+    public function setNummer($nummer){
+        $this->nummer = $nummer;
+        return $this;
+    }
+
+    /**
+     * Get lokaal
+     *
+     * @return string
+     */
+    public function getLokaal()
+    {
+        return $this->lokaal;
+    }
+
+    /**
+     * Set lokaal
+     *
+     * @param string $lokaal
+     *
+     * @return Dokters
+     */
+    public function setLokaal($lokaal){
+        $this->nummer = $lokaal;
+        return $this;
+    }
+
+    /**
+     * Get info
+     *
+     * @return string
+     */
+    public function getInfo()
+    {
+        return $this->voornaam.' '.$this->naam.' '.$this->id;
+    }
+
+
 }

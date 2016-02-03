@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.base.html.twig' %}
 
 {% block body %}
 
@@ -12,10 +12,10 @@
             <div class="col-sm-3">
 
 
-                <a href="#"> <img src="{{ asset('images/doctor.jpg') }}"></a>
+                <a href="#"> <img src="{{ asset('images/dokters/' ~ dokter.profielfoto) }}"></a>
                 <h2>{{ dokter.voornaam }}</h2>
                 <h2> {{ dokter.naam }}</h2>
-                <p><img src="{{ asset('images/tel.png') }}" style="max-height:1em;margin-right:5px;">014-65 61 99</p>
+                <p><img src="{{ asset('images/tel.png') }}" style="max-height:1em;margin-right:5px;">{{ dokter.nummer }}</p>
                 <a href="/admin/dokters/edit/{{ dokter.id }}"><div class="button">Edit</div></a>
                 <a href="/admin/dokters/delete/{{ dokter.id }}"><div class="button">Delete</div></a>
             </div>
@@ -26,7 +26,7 @@
             <h2>?</h2>
             <h2>?</h2>
             <p><img src="{{ asset('images/tel.png') }}" style="max-height:1em;margin-right:5px;">?</p>
-            <a href="/admin/dokters/add"><div class="button">Add Doctor</div></a>
+            <a href="/admin/dokters/add"><div class="button">Dokter toevoegen</div></a>
         </div>
     </div>
 {% endblock %}
