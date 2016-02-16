@@ -54,11 +54,7 @@ class Dokters
      */
     private $nummer;
 
-    /**
-     * @ORM\Column(name="lokaal", type="string", length=5)
-     *
-     */
-    private $lokaal;
+
 
     /**
      * Get id
@@ -162,27 +158,7 @@ class Dokters
         return $this;
     }
 
-    /**
-     * Get lokaal
-     *
-     * @return string
-     */
-    public function getLokaal()
-    {
-        return $this->lokaal;
-    }
 
-    /**
-     * Set lokaal
-     *
-     * @param string $lokaal
-     *
-     * @return Dokters
-     */
-    public function setLokaal($lokaal){
-        $this->nummer = $lokaal;
-        return $this;
-    }
 
     /**
      * Get info
